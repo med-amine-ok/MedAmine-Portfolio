@@ -1,0 +1,238 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-blue: #1e3a8a;
+  --secondary-blue: #3b82f6;
+  --primary-orange: #f97316;
+  --secondary-orange: #fb923c;
+  --dark: #1e293b;
+  --light: #f8fafc;
+  --gray: #64748b;
+  --transition: all 0.3s ease;
+  --background: rgba(248, 250, 252, 0.8);
+  --card-bg: white;
+  --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --card-shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.15);
+  --text-heading: #1e3a8a;
+  --text-body: #64748b;
+  --form-bg: white;
+  --form-border: #cbd5e1;
+  --form-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+}
+
+.dark-theme {
+  --light: #0f172a;
+  --dark: #f8fafc;
+  --primary-blue: #3b82f6;
+  --secondary-blue: #60a5fa;
+  --gray: #94a3b8;
+  --background: rgba(15, 23, 42, 0.9);
+  --card-bg: #1e293b;
+  --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.4);
+  --text-heading: #3b82f6;
+  --text-body: #cbd5e1;
+  --form-bg: #1e293b;
+  --form-border: #475569;
+  --form-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--light);
+  color: var(--dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.section-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  color: var(--text-heading);
+  transition: color 0.3s ease;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 4px;
+  background: var(--primary-orange);
+  transition: background 0.3s ease;
+}
+
+.navbar, .section-content, .footer {
+  transition: var(--transition);
+}
+
+/* Animation Classes */
+.animate-text {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeIn 0.8s forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.3s;
+}
+
+.delay-2 {
+  animation-delay: 0.6s;
+}
+
+.delay-3 {
+  animation-delay: 0.9s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: sectionFadeIn 1s forwards;
+}
+
+@keyframes sectionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark mode transition effect */
+.dark-theme-transition {
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 70px 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+}
+
+/* Base app styling */
+.app {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Ensure content sections have proper contrast with the background */
+section {
+  position: relative;
+  z-index: 2;
+}
+
+/* Optional gradient overlays for better readability */
+.app.dark-theme::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.2) 30%, 
+    rgba(0, 0, 0, 0.2) 70%,
+    rgba(0, 0, 0, 0.5) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app.light-theme::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.1) 30%, 
+    rgba(255, 255, 255, 0.1) 70%,
+    rgba(255, 255, 255, 0.3) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Theme-specific text colors */
+.app.dark-theme {
+  color: #f0f0f0;
+}
+
+.app.light-theme {
+  color: #333333;
+}
+
+/* Theme transitions */
+*, *::before, *::after {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Scrollbar Track (background) */
+::-webkit-scrollbar-track {
+  background: var(--light); /* Light orange background */
+  border-radius: 10px;
+}
+
+/* Scrollbar Thumb (draggable part) */
+::-webkit-scrollbar-thumb {
+  background: #ff8c00; /* Vibrant orange */
+  border-radius: 10px;
+  border: 2px solid #110041; /* Matches track color */
+}
+
+/* Scrollbar Thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ff6d00; /* Darker orange on hover */
+}
+
+/* Scrollbar Width */
+::-webkit-scrollbar {
+  width: 12px; /* Thickness of the scrollbar */
+}

@@ -1,0 +1,172 @@
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    background: linear-gradient(135deg, #09021600 0%, #170b3500 50%, #0a0a2a00 100%);
+    perspective: 1000px;
+  }
+  
+  /* Star layers with different parallax speeds */
+  .stars-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .stars-layer-1,
+  .stars-layer-2,
+  .stars-layer-3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    will-change: transform;
+  }
+  
+  /* Star styles */
+  .star {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #f57906;
+    animation: twinkle 5s infinite ease-in-out;
+    will-change: opacity, transform;
+  }
+  
+  .star.small {
+    width: 1px;
+    height: 1px;
+    opacity: 0.6;
+  }
+  
+  .star.medium {
+    width: 2px;
+    height: 2px;
+    opacity: 0.8;
+  }
+  
+  .star.large {
+    width: 3px;
+    height: 3px;
+    box-shadow: 0 0 4px 1px rgba(216, 91, 7, 0.63);
+  }
+  
+  /* Nebula effect */
+  .nebula {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at center,
+      rgba(116, 0, 184, 0.2) 0%,
+      rgba(65, 105, 225, 0.1) 50%,
+      transparent 80%
+    );
+    filter: blur(15px);
+    animation: float 20s infinite alternate ease-in-out;
+    will-change: transform;
+  }
+  
+  /* 3D Grid */
+  .grid {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: rotateX(60deg) translateZ(-100px);
+    opacity: 0.15;
+    will-change: transform;
+  }
+  
+  .grid-line {
+    position: absolute;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(64, 219, 255, 0.5) 50%, 
+      transparent 100%);
+    will-change: opacity;
+  }
+  
+  .grid-line.horizontal {
+    width: 100%;
+    height: 1px;
+    transform: translateZ(0);
+  }
+  
+  .grid-line.vertical {
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(0deg, 
+      transparent 0%, 
+      rgba(64, 219, 255, 0.5) 50%, 
+      transparent 100%);
+  }
+  
+  /* Floating orbs */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.7;
+    filter: blur(5px);
+    will-change: transform;
+    animation: float 15s infinite alternate ease-in-out;
+  }
+  
+  .orb-1 {
+    width: 100px;
+    height: 100px;
+    bottom: 15%;
+    right: 20%;
+    background: radial-gradient(circle at 30% 30%, rgba(226, 125, 43, 0.8), rgba(223, 91, 30, 0.3));
+    animation-delay: 0s;
+  }
+  
+  .orb-2 {
+    width: 150px;
+    height: 150px;
+    top: 25%;
+    left: 10%;
+    background: radial-gradient(circle at 70% 40%, rgba(255, 115, 0, 0.8), rgba(255, 158, 30, 0.3));
+    animation-delay: -5s;
+  }
+  
+  .orb-3 {
+    width: 80px;
+    height: 80px;
+    top: 60%;
+    left: 30%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 148, 105, 0.8), rgba(219, 142, 112, 0.3));
+    animation-delay: -10s;
+  }
+  
+  /* Animations */
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.1); }
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0) translateX(0) rotate(0deg); }
+    33% { transform: translateY(-70px) translateX(50px) rotate(500deg); }
+    66% { transform: translateY(55px) translateX(-85px) rotate(-50deg); }
+    100% { transform: translateY(-20px) translateX(5px) rotate(0deg); }
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    .nebula {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .orb-1, .orb-2, .orb-3 {
+      transform: scale(0.7);
+    }
+  }
