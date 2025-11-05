@@ -40,6 +40,7 @@ const projects: Project[] = [
     desc: "Created my first personal portfolio using React and Vite a fast, responsive, and modern website showcasing my projects and skills with smooth UI, clean design, and optimized performance",
     img: "/static/projects/8.png",
     link: "https://portfolio2-seven-virid.vercel.app",
+    github: "https://github.com/med-amine-ok/portfolio2",
     tags: ["React", "Vite", "CSS"],
   },
   
