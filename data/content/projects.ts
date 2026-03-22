@@ -3,14 +3,15 @@ import { Project } from "types";
 
 const projects: Project[] = [
   
-  {
-    id: 1,
-    title: "SPARK Website",
-    desc: "Developed a dynamic website for the SPARK scientific department using React, Next.js, and Tailwind CSS to showcase all its activities and information.",
-    img: "/static/projects/1.png",
-    link: "https://spark-omega-eight.vercel.app/",
-    tags: ["React", "Next.js", "Tailwind CSS"],
-  },
+ {
+    id: 8,
+    title: "AEC Event Website",
+    desc: "A cutting edge, immersive platform designed for Algeria’s premier engineering competition. It showcases interactive 3D environments, a dynamic nationwide event map, and a smooth registration experience powered by Next.js, Three.js, and Supabase to deliver a refined, engineering first user journey.",
+   
+    img: "/static/projects/9.png",
+    link: "https://aec.vic-enp.com",
+    tags: ["Next.js", "Tailwind CSS", "Three js" ,"Supabase"],
+ },
   {
     id: 2,
     title: "Book Store",
@@ -25,6 +26,14 @@ const projects: Project[] = [
     img: "/static/projects/4.png",
     link: "https://gala.vic-enp.com",
     tags: ["Django","Django REST Framework", "PostgreSQL", "API"],
+  },
+   {
+    id: 1,
+    title: "SPARK Website",
+    desc: "Developed a dynamic website for the SPARK scientific department using React, Next.js, and Tailwind CSS to showcase all its activities and information.",
+    img: "/static/projects/1.png",
+    link: "https://spark-omega-eight.vercel.app/",
+    tags: ["React", "Next.js", "Tailwind CSS"],
   },
   {
     id: 4,
